@@ -1,0 +1,101 @@
+nav {
+  background: rgb(195, 209, 235);
+  color: cornflowerblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1.5rem 0 1rem 0;
+  text-align: center;
+  font-weight: 700;
+}
+.nav-link {
+  cursor: pointer;
+}
+.icon {
+  border: 0.15rem solid silver;
+  color: rgb(157, 155, 155);
+  border: 0.15rem solid rgba(84, 83, 83, 0.5);
+  color: rgba(84, 83, 83, 0.5);
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+.help {
+  padding: 0.5rem 0.8rem;
+  font-style: italic;
+}
+.p1 {
+  margin-top: 1rem;
+  font-size: 0.7rem;
+}
+.p2 {
+  font-size: 0.7rem;
+  color: rgba(84, 83, 83, 0.7);
+}
+
+ul {
+  list-style: none;
+  position: relative;
+  width: 80%;
+  margin: 3rem auto;
+}
+
+.header {
+  font-weight: 700;
+  width: 15rem;
+  color: rgb(53, 119, 240);
+  padding: 0.5rem 1rem;
+  border-right: 1px solid silver;
+  margin: 0;
+  cursor: pointer;
+}
+.details-container {
+  position: absolute;
+  top: -1rem;
+  left: 16rem;
+}
+.details {
+  border: 1px solid silver;
+  border-radius: 0.3rem;
+  /* animation-duration: 3s;
+  animation-name: slidein; */
+  padding: 0.5rem 1rem;
+  margin: 0.3rem 1rem;
+  font-weight: 600;
+  max-width: 50rem;
+}
+.details:first-child {
+  margin-top: 1rem;
+}
+a {
+  text-decoration: none;
+  color: cornflowerblue;
+}
+.body-main {
+  padding: 0;
+}
+.top {
+  padding: 0 1rem;
+  margin: 0.5rem 0;
+}
+.b {
+  font-weight: 500;
+}
+
+/* @keyframes slidein {
+  from {
+    margin-left: 100%;
+    max-width: 50rem;
+  }
+
+  to {
+    margin-left: 1rem;
+    max-width: 50rem;
+    width: 100%;
+  }
+} */
+.is-active {
+  border: 1px solid silver;
+  border-radius: 0.3rem 0 0 0.3rem;
+  border-right: none;
+}

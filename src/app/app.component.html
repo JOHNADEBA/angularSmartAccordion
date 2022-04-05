@@ -1,0 +1,63 @@
+<header>
+  <nav>
+    <div class="nav-link">
+      <fa-icon class="icon" [icon]="faEnvelopeOpen"></fa-icon>
+      <p class="p1">help@gocardless.com</p>
+    </div>
+
+    <div class="nav-link">
+      <fa-icon class="icon" [icon]="faPhoneFlip"></fa-icon>
+      <p class="p1">020 7183 8674</p>
+      <p class="p2">(9am-6pm Mon-Fri)</p>
+    </div>
+
+    <div class="nav-link">
+      <fa-icon class="icon" [icon]="faComment"></fa-icon>
+      <p class="p1">Developer chat room</p>
+    </div>
+
+    <div class="nav-link">
+      <fa-icon class="icon help" [icon]="faInfo"></fa-icon>
+      <p class="p1">Help Center</p>
+    </div>
+  </nav>
+</header>
+
+<ul>
+  <li *ngFor="let list of bigObj">
+    <p
+      class="header"
+      (click)="showSub(list.id)"
+      [ngClass]="{ 'is-active': list.isVisible }"
+    >
+      {{ list.title | uppercase }}
+    </p>
+    <div *ngIf="list.isVisible" class="details-container">
+      <p *ngIf="list.bodyHeader" class="details">
+        <a href="">{{ list.bodyHeader }}</a>
+      </p>
+      <div class="details body-main">
+        <p *ngIf="list.bodyMain" class="top">
+          <a href=""> {{ list.bodyMain }}</a>
+        </p>
+        <hr style="width: 100%; opacity: 0.3" />
+        <p class="top b">
+          {{ list.body }}
+        </p>
+      </div>
+      <p *ngIf="list.bodyHeader" class="details">
+        <a href="">{{ list.body1 }}</a>
+      </p>
+      <p *ngIf="list.bodyHeader" class="details">
+        <a href="">{{ list.body2 }}</a>
+      </p>
+      <p *ngIf="list.bodyHeader" class="details">
+        <a href="">{{ list.body3 }}</a>
+      </p>
+      <p *ngIf="list.bodyHeader" class="details">
+        <a href="">{{ list.body4 }}</a>
+      </p>
+    </div>
+  </li>
+</ul>
+<router-outlet></router-outlet>
