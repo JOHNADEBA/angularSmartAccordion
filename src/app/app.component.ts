@@ -4,6 +4,8 @@ import {
   faComment,
   faEnvelopeOpen,
   faInfo,
+  faBars,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -16,6 +18,9 @@ export class AppComponent {
   faEnvelopeOpen = faEnvelopeOpen;
   faComment = faComment;
   faInfo = faInfo;
+  faBars = faBars;
+  faTimes = faTimes;
+  showMenu: boolean = false;
 
   title = 'office';
   bigObj = [
@@ -31,6 +36,7 @@ export class AppComponent {
       bodyMain: 'What is sub Direct Debit',
       body: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
     },
+    
     {
       id: 2,
       title: 'Getting started',
@@ -141,10 +147,39 @@ export class AppComponent {
     },
   ];
 
+  navLinks = [
+    {
+      id: 1,
+      icon: faEnvelopeOpen,
+      header: 'help@gocardless.com',
+      subheader: '',
+    },
+    {
+      id: 2,
+      icon: faPhoneFlip,
+      header: '020 7183 8674',
+      subheader: '(9am-6pm Mon-Fri)',
+    },
+    {
+      id: 3,
+      icon: faComment,
+      header: 'Developer chat room',
+      subheader: '',
+    },
+    {
+      id: 4,
+      icon: faInfo,
+      header: 'Help Center',
+      subheader: '',
+    },
+  ];
+
   showSub(index: number) {
     this.bigObj.forEach((element) => {
-      if (element.id === index) element.isVisible = !element.isVisible;
-      else element.isVisible = false;
+      if (element.id === index) {
+        element.isVisible = true;
+        this.showMenu = false;
+      } else element.isVisible = false;
     });
   }
 }

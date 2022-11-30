@@ -1,38 +1,37 @@
 <header>
   <nav>
-    <div class="nav-link">
-      <fa-icon class="icon" [icon]="faEnvelopeOpen"></fa-icon>
-      <p class="p1">help@gocardless.com</p>
-    </div>
+    <ul class="all-nav-links">
+      <li class="logo">THE LOGO</li>
+      <li class="nav-link" *ngFor="let link of navLinks">
+        <div class="icon-cont">
+          <fa-icon class="icon" [icon]="link.icon"></fa-icon>
+        </div>
+        <p class="p1">{{ link.header }}</p>
+        <p class="p2">{{ link.subheader }}</p>
+      </li>
+      <li class="bar" (click)="showMenu = !showMenu">
+        <fa-icon *ngIf="!showMenu" [icon]="faBars"></fa-icon>
 
-    <div class="nav-link">
-      <fa-icon class="icon" [icon]="faPhoneFlip"></fa-icon>
-      <p class="p1">020 7183 8674</p>
-      <p class="p2">(9am-6pm Mon-Fri)</p>
-    </div>
-
-    <div class="nav-link">
-      <fa-icon class="icon" [icon]="faComment"></fa-icon>
-      <p class="p1">Developer chat room</p>
-    </div>
-
-    <div class="nav-link">
-      <fa-icon class="icon help" [icon]="faInfo"></fa-icon>
-      <p class="p1">Help Center</p>
-    </div>
+        <fa-icon *ngIf="showMenu" [icon]="faTimes"></fa-icon>
+      </li>
+    </ul>
   </nav>
 </header>
 
-<ul>
+<ul class="big-obj" [ngClass]="{ 'inactive-sidemenu': !showMenu }">
   <li *ngFor="let list of bigObj">
-    <p
-      class="header"
-      (click)="showSub(list.id)"
-      [ngClass]="{ 'is-active': list.isVisible }"
-    >
-      {{ list.title | uppercase }}
-    </p>
+    <div class="sidemenu" [ngClass]="{ 'active-sidemenu': showMenu }">
+      <p
+        class="header"
+        (click)="showSub(list.id)"
+        [ngClass]="{ 'is-active': list.isVisible }"
+      >
+        {{ list.title | uppercase }}
+      </p>
+    </div>
     <div *ngIf="list.isVisible" class="details-container">
+      <p class="mobile-title">{{ list.title | uppercase }}</p>
+
       <p *ngIf="list.bodyHeader" class="details">
         <a href="">{{ list.bodyHeader }}</a>
       </p>
@@ -59,5 +58,17 @@
       </p>
     </div>
   </li>
+
+  <div *ngIf="showMenu" class="nav-link-mobile">
+    <li *ngFor="let link of navLinks ">
+      <div class="contact">
+        <fa-icon class="left" [icon]="link.icon"></fa-icon>
+        <div class="right">
+          <p class="p1">{{ link.header }}</p>
+          <p class="p2">{{ link.subheader }}</p>
+        </div>
+      </div>
+    </li>
+  </div>
 </ul>
 <router-outlet></router-outlet>
